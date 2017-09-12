@@ -1,6 +1,6 @@
 {
   "name": "checkeeper-node-client",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "This lib is used as a wrapper around api calls to Checkeeper",
   "main": "index.js",
   "scripts": {},
@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/SmarterServices/checkeeper-node-client#readme",
   "dependencies": {
+    "camelcase-keys": "^4.1.0",
     "joi": "latest",
     "lodash.get": "^4.4.2",
     "lodash.omit": "^4.5.0",
