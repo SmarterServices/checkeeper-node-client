@@ -1,6 +1,6 @@
 {
   "name": "checkeeper-node-client",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "This lib is used as a wrapper around api calls to Checkeeper",
   "main": "index.js",
   "scripts": {},
