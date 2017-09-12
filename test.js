@@ -12,7 +12,7 @@ const bankLookUpPayload = {
 };
 
 const checkStatusPayload = {
-  "checkId": "sCOrlJiwfAjokyfjtBGu"
+  "checkId": "wIvTgDvYosMvNUzwOJaK"
 };
 
 const checkCreatePayload = {
@@ -24,7 +24,7 @@ const checkCreatePayload = {
   "memo": "Widget supply order",
   "note": "15 hours",
   "returnPdf": true,
-  "pdfBackground" : true,
+  "pdfBackground": true,
   "test": true,
   "payer": {
     "name": "Widgets Inc.",
@@ -51,11 +51,7 @@ const checkCreatePayload = {
 checkeeper
   .createCheck(checkCreatePayload)
   .then(data=>{
-    if(data.success) {
-      console.log('Check found');
-    } else {
-      return Promise.reject(data);
-    }
+    console.log('Check created');
   })
   .catch(error=>{
     console.error(error);
@@ -64,11 +60,7 @@ checkeeper
 checkeeper
   .checkStatus(checkStatusPayload)
   .then(data=>{
-    if(data.success) {
-      console.log('Check found');
-    } else {
-      return Promise.reject(data);
-    }
+    console.log('Check found');
   })
   .catch(error=>{
     console.error(error);
@@ -77,11 +69,7 @@ checkeeper
 checkeeper
   .bankLookup(bankLookUpPayload)
   .then(data=>{
-    if(data.success) {
-      console.log('Bank found');
-    } else {
-      return Promise.reject(data);
-    }
+    console.log('Bank found');
   })
   .catch(error=>{
     console.error(error);
@@ -90,11 +78,7 @@ checkeeper
 checkeeper
   .accountInfo()
   .then(data=>{
-    if(data.success) {
-      console.log('Account found');
-    } else {
-      return Promise.reject(data);
-    }
+    console.log('Account found');
   })
   .catch(error=>{
     console.error(error);
