@@ -38,6 +38,22 @@ const mockRequest = function () {
     .post(endpoints.checkStatus)
     .reply(()=>testData.createCheck.response.invalidSecret);
 
+  nock(url)
+    .post(endpoints.bankLookup)
+    .reply(200, testData.bankLookup.response.valid);
+
+  nock(url)
+    .post(endpoints.bankLookup)
+    .reply(200, testData.bankLookup.response.invalid);
+
+  nock(url)
+    .post(endpoints.bankLookup)
+    .reply(()=>testData.bankLookup.response.invalidToken);
+
+  nock(url)
+    .post(endpoints.bankLookup)
+    .reply(()=>testData.bankLookup.response.invalidSecret);
+
 };
 
 module.exports = mockRequest;

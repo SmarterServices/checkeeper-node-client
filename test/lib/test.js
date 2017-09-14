@@ -88,3 +88,48 @@ describe('Check Status', function testCreateCheck() {
   });
 
 });
+
+describe('Bank Lookup', function testCreateCheck() {
+  it('Should find bank successfully and return 200 response', function () {
+    let client = new Checkeeper(credentials.valid);
+
+    return client
+      .bankLookup(Object.assign({}, testData.bankLookup.payload.valid))
+      .then(function (response) {
+        expect(response).to.eql(testData.bankLookup.response.valid);
+      });
+  });
+
+  it('Should find no bank for [checkId] and return 200 response', function () {
+    let client = new Checkeeper(credentials.valid);
+
+    return client
+      .bankLookup(Object.assign({}, testData.bankLookup.payload.invalid))
+      .then(function (response) {
+        expect(response).to.eql(testData.bankLookup.response.invalid);
+      });
+  });
+
+  it('Should fail for invalid [token] and return 400 response', function () {
+    let client = new Checkeeper(credentials.invalidToken);
+
+    return client
+      .bankLookup(Object.assign({}, testData.bankLookup.payload.valid))
+      .then(response => Promise.reject('Should fail'))
+      .catch(function (response) {
+        expect(response).to.eql(testData.bankLookup.response.invalidToken);
+      });
+  });
+
+  it('Should fail for invalid [secretKey] and return 400 response', function () {
+    let client = new Checkeeper(credentials.invalidSecret);
+
+    return client
+      .bankLookup(Object.assign({}, testData.bankLookup.payload.valid))
+      .then(response => Promise.reject('Should fail'))
+      .catch(function (response) {
+        expect(response).to.eql(testData.bankLookup.response.invalidSecret);
+      });
+  });
+
+});
