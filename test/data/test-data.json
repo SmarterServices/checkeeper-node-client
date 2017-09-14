@@ -88,5 +88,43 @@
         "message": "Invalid Signature"
       }
     }
+  },
+  "checkStatus": {
+    "payload": {
+      "valid": {
+        "checkId": "wIvTgDvYosMvNUzwOJaK"
+      },
+      "invalid": {
+        "checkId": "wIvTgDvY456456465466"
+      }
+    },
+    "response": {
+      "valid": {
+        "success": true,
+        "message": "Check Found",
+        "check": {
+          "checkId": "wIvTgDvYosMvNUzwOJaK",
+          "status": "pdf",
+          "created": "2015-01-19",
+          "printed": null,
+          "mailed": null
+        }
+      },
+      "invalid": {
+        "success": false,
+        "status": 400,
+        "message": "Check ID not found"
+      },
+      "invalidToken": {
+        "success": false,
+        "status": 400,
+        "message": "Invalid Partner Token"
+      },
+      "invalidSecret": {
+        "success": false,
+        "status": 400,
+        "message": "Invalid Signature"
+      }
+    }
   }
 }
