@@ -100,7 +100,7 @@ describe('Bank Lookup', function testCreateCheck() {
       });
   });
 
-  it('Should find no bank for [checkId] and return 200 response', function () {
+  it('Should find no bank for [routingNumber] and return 200 response', function () {
     let client = new Checkeeper(credentials.valid);
 
     return client
@@ -129,6 +129,41 @@ describe('Bank Lookup', function testCreateCheck() {
       .then(response => Promise.reject('Should fail'))
       .catch(function (response) {
         expect(response).to.eql(testData.bankLookup.response.invalidSecret);
+      });
+  });
+
+});
+
+describe('Account Info', function testCreateCheck() {
+  it('Should find account information successfully and return 200 response', function () {
+    let client = new Checkeeper(credentials.valid);
+
+    return client
+      .accountInfo()
+      .then(function (response) {
+        expect(response).to.eql(testData.accountInfo.response.valid);
+      });
+  });
+
+  it('Should fail for invalid [token] and return 400 response', function () {
+    let client = new Checkeeper(credentials.invalidToken);
+
+    return client
+      .accountInfo()
+      .then(response => Promise.reject('Should fail'))
+      .catch(function (response) {
+        expect(response).to.eql(testData.bankLookup.response.invalidToken);
+      });
+  });
+
+  it('Should fail for invalid [secretKey] and return 400 response', function () {
+    let client = new Checkeeper(credentials.invalidSecret);
+
+    return client
+      .accountInfo()
+      .then(response => Promise.reject('Should fail'))
+      .catch(function (response) {
+        expect(response).to.eql(testData.accountInfo.response.invalidSecret);
       });
   });
 

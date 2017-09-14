@@ -3,7 +3,6 @@
 const Checkeeper = require('./../../index');
 const credentials = require('./../data/credentials');
 const endpoints = require('./../../data/endpoints.json');
-const isEqual = require('lodash.isequal');
 const nock = require('nock');
 const testData = require('./../data/test-data.json');
 
@@ -53,6 +52,18 @@ const mockRequest = function () {
   nock(url)
     .post(endpoints.bankLookup)
     .reply(()=>testData.bankLookup.response.invalidSecret);
+
+  nock(url)
+    .post(endpoints.accountInfo)
+    .reply(200, testData.accountInfo.response.valid);
+
+  nock(url)
+    .post(endpoints.accountInfo)
+    .reply(()=>testData.accountInfo.response.invalidToken);
+
+  nock(url)
+    .post(endpoints.accountInfo)
+    .reply(()=>testData.accountInfo.response.invalidSecret);
 
 };
 
