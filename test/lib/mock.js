@@ -22,6 +22,22 @@ const mockRequest = function () {
     .post(endpoints.checkCreate)
     .reply(()=>testData.createCheck.response.invalidSecret);
 
+  nock(url)
+    .post(endpoints.checkStatus)
+    .reply(200, testData.checkStatus.response.valid);
+
+  nock(url)
+    .post(endpoints.checkStatus)
+    .reply(200, testData.checkStatus.response.invalid);
+
+  nock(url)
+    .post(endpoints.checkStatus)
+    .reply(()=>testData.createCheck.response.invalidToken);
+
+  nock(url)
+    .post(endpoints.checkStatus)
+    .reply(()=>testData.createCheck.response.invalidSecret);
+
 };
 
 module.exports = mockRequest;
