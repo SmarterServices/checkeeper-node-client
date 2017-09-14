@@ -126,5 +126,48 @@
         "message": "Invalid Signature"
       }
     }
+  },
+  "bankLookup": {
+    "payload": {
+      "valid": {
+        "country": "US",
+        "routingNumber": "011100915"
+      },
+      "invalid": {
+        "country": "US",
+        "routingNumber": "011100915"
+      }
+    },
+    "response": {
+      "valid": {
+        "success": true,
+        "message": "Bank Found",
+        "bank": {
+          "routing": "011100915",
+          "name": "BANK OF AMERICA N.A.",
+          "address": "P.O. BOX 27025",
+          "city": "RICHMOND",
+          "state": "VA",
+          "zip": "23261",
+          "updated": "2014-08-18 12:49:31",
+          "country": "US"
+        }
+      },
+      "invalid": {
+        "success": true,
+        "message": "Bank Not Found",
+        "bank": null
+      },
+      "invalidToken": {
+        "success": false,
+        "status": 400,
+        "message": "Invalid Partner Token"
+      },
+      "invalidSecret": {
+        "success": false,
+        "status": 400,
+        "message": "Invalid Signature"
+      }
+    }
   }
 }
