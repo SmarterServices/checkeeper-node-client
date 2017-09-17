@@ -9,6 +9,11 @@ const testData = require('./../data/test-data.json');
 const mockRequest = function () {
   let url = 'https://my.checkeeper.com/api/v2';
 
+  // All mock responses are matched with corresponding request
+  // So if new test need to be added in the middle,
+  // please count test number and mock response number
+  // and put it in appropriate position
+
   nock(url)
     .post(endpoints.checkCreate)
     .reply(200, testData.createCheck.response.valid);
