@@ -29,6 +29,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "gulp": "^3.9.0",
+    "gulp-istanbul": "1.1.1",
     "gulp-mocha": "3.0.1",
     "nock": "^9.0.7"
   }
