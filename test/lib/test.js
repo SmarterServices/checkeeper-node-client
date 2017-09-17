@@ -12,11 +12,22 @@ mockRequest();
 describe('Create Check', function testCreateCheck() {
   it('Should create check successfully and return 200 response', function () {
     let client = new Checkeeper(credentials.valid);
-    
+
     return client
       .createCheck(Object.assign({}, testData.createCheck.payload.valid))
       .then(function (response) {
         expect(response).to.eql(testData.createCheck.response.valid);
+      });
+  });
+
+  it('Should fail for missing [checkNumber] and return 200 response', function () {
+    let client = new Checkeeper(credentials.valid);
+
+    return client
+      .createCheck(Object.assign({}, testData.createCheck.payload.missingField))
+      .then(response => Promise.reject('Should fail'))
+      .catch(function (response) {
+        expect(response).to.equal('"checkNumber" is required');
       });
   });
 
