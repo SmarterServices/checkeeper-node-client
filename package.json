@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "This lib is used as a wrapper around api calls to Checkeeper",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "gulp test"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SmarterServices/checkeeper-node-client.git"
@@ -24,5 +26,11 @@
     "request-promise": "^4.1.1",
     "snakecase-keys": "^1.1.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.0",
+    "gulp-istanbul": "1.1.1",
+    "gulp-mocha": "3.0.1",
+    "nock": "^9.0.7"
+  }
 }
