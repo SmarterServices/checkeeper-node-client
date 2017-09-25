@@ -43,4 +43,4 @@ N/A
 
 **Original Author**
 
-* [Sjjad Hossain](https://github.com/EnosisSajjad)
+* [Sajjad Hossain](https://github.com/EnosisSajjad)
