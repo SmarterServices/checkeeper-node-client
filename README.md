@@ -1,4 +1,4 @@
-# checkeeper-api-client
+# checkeeper-node-client
 
 ## Introduction
 
@@ -15,8 +15,8 @@ NODE v4.0 or higher
 npm install
 
 ### Configuration	
-	let clientLib = require('checkeeper');
-	let client = new Checkeeper({url, token: correctToken});
+	let Checkeeper = require('checkeeper');
+	let client = new Checkeeper({secretKey: apiSecret, token: correctToken});
 	...
 
 	//All of the above are promises
@@ -43,4 +43,4 @@ N/A
 
 **Original Author**
 
-* [Sjjad Hossain](https://github.com/EnosisSajjad)
+* [Sajjad Hossain](https://github.com/EnosisSajjad)

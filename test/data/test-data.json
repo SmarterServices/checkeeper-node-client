@@ -1,0 +1,232 @@
+{
+  "createCheck": {
+    "payload": {
+      "valid": {
+        "amount": "5,320.00",
+        "date": "2015-01-19",
+        "checkNumber": "37285",
+        "bankRouting": "012345678",
+        "bankAccount": "938763720122",
+        "memo": "Widget supply order",
+        "note": "15 hours",
+        "returnPdf": true,
+        "pdfBackground": true,
+        "test": true,
+        "payer": {
+          "name": "Widgets Inc.",
+          "address": {
+            "line1": "827 Random Street",
+            "line2": "Suite 102"
+          },
+          "city": "Anytown",
+          "state": "NY",
+          "zip": "14850",
+          "signer": "John Hancock"
+        },
+        "payee": {
+          "name": "Bob's Supplies",
+          "address": {
+            "line1": "114 Project Lane"
+          },
+          "city": "Tinkertown",
+          "state": "CA",
+          "zip": "90210"
+        }
+      },
+      "missingField": {
+        "amount": "5,320.00",
+        "date": "2015-01-19",
+        "bankRouting": "012345678",
+        "bankAccount": "938763720122",
+        "memo": "Widget supply order",
+        "note": "15 hours",
+        "returnPdf": true,
+        "pdfBackground": true,
+        "test": true,
+        "payer": {
+          "name": "Widgets Inc.",
+          "address": {
+            "line1": "827 Random Street",
+            "line2": "Suite 102"
+          },
+          "city": "Anytown",
+          "state": "NY",
+          "zip": "14850",
+          "signer": "John Hancock"
+        },
+        "payee": {
+          "name": "Bob's Supplies",
+          "address": {
+            "line1": "114 Project Lane"
+          },
+          "city": "Tinkertown",
+          "state": "CA",
+          "zip": "90210"
+        }
+      }
+    },
+    "response": {
+      "valid": {
+        "success": true,
+        "status": 200,
+        "message": "check created successfully",
+        "check": {
+          "id": "MuQKRBGhYqwTJbyfcumG",
+          "amount": "5320.00",
+          "date": "2015-01-19",
+          "checkNumber": "37285",
+          "bankRouting": "QKCjM/3irg/XInopL6JCvSprGAS3N3Em7Xx2bKvIF2g=",
+          "bankAccount": "7Rg/7MM6xMGY7AH7wgIeAiL5szbPtXJIqhhj99ev9Lo=",
+          "memo": "Widget supply order",
+          "note": "15 hours",
+          "returnPdf": true,
+          "pdfBackground": true,
+          "test": true,
+          "payer": {
+            "name": "Widgets Inc.",
+            "address": {
+              "line1": "827 Random Street",
+              "line2": "Suite 102"
+            },
+            "city": "Anytown",
+            "state": "NY",
+            "zip": "14850",
+            "signer": "John Hancock",
+            "signerImage": null
+          },
+          "payee": {
+            "name": "Bob's Supplies",
+            "address": {
+              "line1": "114 Project Lane",
+              "line2": ""
+            },
+            "city": "Tinkertown",
+            "state": "CA",
+            "zip": "90210"
+          }
+        },
+        "pdf": "JVBERi0VmCjYzOTEzCiUlRU9GCg==",
+        "remainingCredits": "400.00"
+      },
+      "invalidToken": {
+        "success": false,
+        "status": 400,
+        "message": "Invalid Partner Token"
+      },
+      "invalidSecret": {
+        "success": false,
+        "status": 400,
+        "message": "Invalid Signature"
+      }
+    }
+  },
+  "checkStatus": {
+    "payload": {
+      "valid": {
+        "checkId": "wIvTgDvYosMvNUzwOJaK"
+      },
+      "invalid": {
+        "checkId": "wIvTgDvY456456465466"
+      }
+    },
+    "response": {
+      "valid": {
+        "success": true,
+        "message": "Check Found",
+        "check": {
+          "checkId": "wIvTgDvYosMvNUzwOJaK",
+          "status": "pdf",
+          "created": "2015-01-19",
+          "printed": null,
+          "mailed": null
+        }
+      },
+      "invalid": {
+        "success": false,
+        "status": 400,
+        "message": "Check ID not found"
+      },
+      "invalidToken": {
+        "success": false,
+        "status": 400,
+        "message": "Invalid Partner Token"
+      },
+      "invalidSecret": {
+        "success": false,
+        "status": 400,
+        "message": "Invalid Signature"
+      }
+    }
+  },
+  "bankLookup": {
+    "payload": {
+      "valid": {
+        "country": "US",
+        "routingNumber": "011100915"
+      },
+      "invalid": {
+        "country": "US",
+        "routingNumber": "000000000"
+      }
+    },
+    "response": {
+      "valid": {
+        "success": true,
+        "message": "Bank Found",
+        "bank": {
+          "routing": "011100915",
+          "name": "BANK OF AMERICA N.A.",
+          "address": "P.O. BOX 27025",
+          "city": "RICHMOND",
+          "state": "VA",
+          "zip": "23261",
+          "updated": "2014-08-18 12:49:31",
+          "country": "US"
+        }
+      },
+      "invalid": {
+        "success": true,
+        "message": "Bank Not Found",
+        "bank": null
+      },
+      "invalidToken": {
+        "success": false,
+        "status": 400,
+        "message": "Invalid Partner Token"
+      },
+      "invalidSecret": {
+        "success": false,
+        "status": 400,
+        "message": "Invalid Signature"
+      }
+    }
+  },
+  "accountInfo": {
+    "response": {
+      "valid": {
+        "success": true,
+        "message": "Partner Found",
+        "account": {
+          "token": "sadfh;ldhLJKKG354s6354d",
+          "company": "TestCompany",
+          "name": "Sajjad",
+          "email": "Hossain",
+          "credits": "400.00",
+          "logoSmall": "test_logo.jpg",
+          "logoLarge": "test_logo.jpg",
+          "pdfCost": "0.00"
+        }
+      },
+      "invalidToken": {
+        "success": false,
+        "status": 400,
+        "message": "Invalid Partner Token"
+      },
+      "invalidSecret": {
+        "success": false,
+        "status": 400,
+        "message": "Invalid Signature"
+      }
+    }
+  }
+}

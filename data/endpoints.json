@@ -1,0 +1,6 @@
+{
+  "checkCreate": "/check/create/",
+  "checkStatus": "/check/status/",
+  "bankLookup": "/bank/lookup/",
+  "accountInfo": "/account/info/"
+}
